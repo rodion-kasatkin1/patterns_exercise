@@ -1,13 +1,13 @@
-package MyPack;
+package com.epam.patterns.task;
 
 import java.util.Arrays;
 
-public class OneDimArrayClass {
+public class OneDimArray {
     private int[] dimArray;
     private int amount = 0;
     private int sum = 0;
 
-    public OneDimArrayClass(int... args) {
+    public OneDimArray(int... args) {
 	this.dimArray = new int[args.length];
 	setArrayElem(args);
     }
