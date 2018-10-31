@@ -1,6 +1,8 @@
 package com.epam.patterns.runner;
 
 import com.epam.patterns.task.OneDimArray;
+import com.epam.patterns.task.TaskExecutor;
+
 
 /**
  * ѕодсчитать количество элементов, значени€ которых лежат в диапазоне от
@@ -9,23 +11,19 @@ import com.epam.patterns.task.OneDimArray;
  * элементы с положительными значени€ми.
  */
 public class Runner {
+	public static final int[] ARGS = {-50, 0, 3, 1, -8, 10, 25};
+	public static final int LOW_LIMIT = 1;
+	public static final int HIGH_LIMIT = 12;
+
+
 	public static void main(String[] args) {
-		OneDimArray arrayObject =
-				new OneDimArray(-50, 0, 3, 1, -8, 10, 25);
-		System.out.println("Origin Array:");
-		System.out.println(arrayObject);
-		int lowLimit = 1;
-		int hiLimit = 12;
-		int amount = arrayObject.setAmountElementsArray(lowLimit, hiLimit);
-		if (amount != 0) {
-			System.out.println("Amount of element belonging" +
-					"to a range from " + lowLimit + " to "
-					+ hiLimit + " = " + amount);
-			System.out.println("Array after transformations:");
-			System.out.println(arrayObject);
-		} else {
-			System.out.println("Array hasn't elements " +
-					"belonging to a given range");
-		}
+		Runner runner = new Runner();
+		runner.doTask();
+	}
+
+	public static void doTask() {
+		TaskExecutor task = new TaskExecutor();
+		task.initArray(ARGS);
+		task.doTask(LOW_LIMIT, HIGH_LIMIT);
 	}
 }
