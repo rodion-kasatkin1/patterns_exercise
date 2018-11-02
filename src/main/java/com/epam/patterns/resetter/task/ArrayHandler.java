@@ -1,27 +1,27 @@
-package com.epam.patterns.utils;
+package com.epam.patterns.resetter.task;
 
 import java.util.Arrays;
 
 /**
  * Handles an array according to the task.
  */
-public class OneDimArrayHandler {
+public class ArrayHandler {
 	/**
 	 * Method is counting of elements in a range.
 	 *
-	 * @param array     is array that we need to count the number of elements contains into the range.
+	 * @param array     it we need to count the number of elements contains into the range.
 	 * @param lowLimit  is bottom border of range.
 	 * @param highLimit is top border of range.
 	 * @return count of elements in a range.
 	 */
-	public int countElementsInRange(int[] array, int lowLimit, int highLimit) {
-		int amount = 0;
+	public int getCountElementsInRange(int[] array, int highLimit, int lowLimit) {
+		int count = 0;
 		for (int i = 0; i < array.length; i++) {
-			if (isInRange(array[i], lowLimit, highLimit)) {
-				amount++;
+			if (isInRange(array[i], highLimit, lowLimit)) {
+				count++;
 			}
 		}
-		return amount;
+		return count;
 	}
 
 	/**
@@ -32,14 +32,20 @@ public class OneDimArrayHandler {
 	 * @param highLimit is top border of range.
 	 * @return average value of elements in a range
 	 */
-	public double calculateAvgElementsInRange(int[] array, int lowLimit, int highLimit) {
+	public double calculateAvgElementsInRange(int[] array, int highLimit, int lowLimit) throws ArithmeticException {
 		double sum = 0;
+		int count = 0;
 		for (int i = 0; i < array.length; i++) {
-			if (isInRange(array[i], lowLimit, highLimit)) {
+			if (isInRange(array[i], highLimit, lowLimit)) {
 				sum += array[i];
+				count++;
 			}
 		}
-		return sum / countElementsInRange(array, lowLimit, highLimit);
+		double avg = sum / count;
+		if (Double.isNaN(avg)) {
+			throw new ArithmeticException();
+		}
+		return avg;
 	}
 
 	/**
@@ -50,7 +56,7 @@ public class OneDimArrayHandler {
 	 * @param highLimit is top border of range.
 	 * @return if range contains item, return true, else false.
 	 */
-	private boolean isInRange(double item, int lowLimit, int highLimit) {
+	private boolean isInRange(int item, int highLimit, int lowLimit) {
 		return (item >= lowLimit) && (item <= highLimit);
 	}
 
@@ -63,9 +69,7 @@ public class OneDimArrayHandler {
 	public int[] replacePositiveElementsOnZero(int[] array) {
 		int[] resultArray = new int[array.length];
 		for (int i = 0; i < array.length; i++) {
-			if (array[i] > 0) {
-				resultArray[i] = 0;
-			} else {
+			if (array[i] < 0) {
 				resultArray[i] = array[i];
 			}
 		}

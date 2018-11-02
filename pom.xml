@@ -42,7 +42,7 @@
                         <archive>
                             <manifest>
                                 <addClasspath>true</addClasspath>
-                                <mainClass>com.epam.patterns.runner.Runner</mainClass>
+                                <mainClass>com.epam.patterns.resetter.ResetArrayAppStarter</mainClass>
                             </manifest>
                         </archive>
                     </configuration>
