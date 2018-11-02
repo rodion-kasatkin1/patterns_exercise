@@ -1,29 +1,25 @@
 package com.epam.patterns.runner;
 
-import com.epam.patterns.task.OneDimArray;
-import com.epam.patterns.task.TaskExecutor;
+import com.epam.patterns.task.PatternsPracticeTask;
 
 
 /**
- * Подсчитать количество элементов, значения которых лежат в диапазоне от
- * lowLimit до hiLimit. Если среднее арифметическое значений элементов, которые
- * лежат в этом диапазоне, превышает количество таких элементов, то обнулить
- * элементы с положительными значениями.
+ * Started program.
  */
 public class Runner {
 	public static final int[] ARGS = {-50, 0, 3, 1, -8, 10, 25};
 	public static final int LOW_LIMIT = 1;
 	public static final int HIGH_LIMIT = 12;
 
-
+	/**
+	 * Point of entry in program.
+	 * Init Task, run task, displays the result.
+	 *
+	 * @param args
+	 */
 	public static void main(String[] args) {
-		Runner runner = new Runner();
-		runner.doTask();
-	}
-
-	public static void doTask() {
-		TaskExecutor task = new TaskExecutor();
-		task.initArray(ARGS);
-		task.doTask(LOW_LIMIT, HIGH_LIMIT);
+		PatternsPracticeTask task = new PatternsPracticeTask(ARGS, LOW_LIMIT, HIGH_LIMIT);
+		String result = task.doTask();
+		System.out.println(result);
 	}
 }
