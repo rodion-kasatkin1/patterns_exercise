@@ -9,7 +9,7 @@ import com.epam.patterns.resetter.utils.ArrayFormatStringGenerator;
  */
 public class ResetArrayAppStarter {
 	public static final String ZERO_ERROR = "Division by zero";
-	public static final int[] ARRAY = {-50, 20, 13, 21, -8, 110, 25};
+	public static final int[] ARRAY = {-50, 0, 2, 1, -8, 10, 25};
 	public static final int LOW_LIMIT = 1;
 	public static final int HIGH_LIMIT = 12;
 
@@ -28,7 +28,6 @@ public class ResetArrayAppStarter {
 
 		try {
 			int[] result = task.runResetArrayTask();
-
 			String resultArrayString = arrayFormatter.getFormattedResultArray(result);
 			System.out.println(resultArrayString);
 

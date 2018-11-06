@@ -9,9 +9,9 @@ public class ArrayHandler {
 	/**
 	 * Method is counting of elements in a range.
 	 *
-	 * @param array     it we need to count the number of elements contains into the range.
-	 * @param lowLimit  is bottom border of range.
-	 * @param highLimit is top border of range.
+	 * @param array     needed to count the number of elements contains into the range.
+	 * @param lowLimit  bottom border of range.
+	 * @param highLimit top border of range.
 	 * @return count of elements in a range.
 	 */
 	public int getCountElementsInRange(int[] array, int highLimit, int lowLimit) {
@@ -27,13 +27,13 @@ public class ArrayHandler {
 	/**
 	 * Method is counting of average value of elements in a range.
 	 *
-	 * @param array     is array that we need to count the number of elements contains into the range
-	 * @param lowLimit  is bottom border of range.
-	 * @param highLimit is top border of range.
+	 * @param array     needed to count the number of elements contains into the range
+	 * @param lowLimit  bottom border of range.
+	 * @param highLimit top border of range.
 	 * @return average value of elements in a range
 	 */
 	public double calculateAvgElementsInRange(int[] array, int highLimit, int lowLimit) throws ArithmeticException {
-		double sum = 0;
+		int sum = 0;
 		int count = 0;
 		for (int i = 0; i < array.length; i++) {
 			if (isInRange(array[i], highLimit, lowLimit)) {
@@ -41,10 +41,7 @@ public class ArrayHandler {
 				count++;
 			}
 		}
-		double avg = sum / count;
-		if (Double.isNaN(avg)) {
-			throw new ArithmeticException();
-		}
+		double avg = sum / count; //possible ArithmeticException
 		return avg;
 	}
 
@@ -61,15 +58,15 @@ public class ArrayHandler {
 	}
 
 	/**
-	 * Replace all positive elements in array by zero.
+	 * Replace all positive elements in array in range by zero.
 	 *
 	 * @param array is array that we need to handle.
 	 * @return new array is result of handle.
 	 */
-	public int[] replacePositiveElementsOnZero(int[] array) {
+	public int[] replacePositiveElementsInRangeOnZero(int[] array, int highLimit, int lowLimit) {
 		int[] resultArray = new int[array.length];
 		for (int i = 0; i < array.length; i++) {
-			if (array[i] < 0) {
+			if (!(array[i] > 0 && isInRange(array[i], highLimit, lowLimit))) {
 				resultArray[i] = array[i];
 			}
 		}
