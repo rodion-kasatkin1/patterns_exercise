@@ -34,11 +34,11 @@ public class ResetArrayTaskExecutor {
 	 * @return String of result of task.
 	 */
 	public int[] runResetArrayTask() throws ArithmeticException {
-		int count = arrayHandler.getCountElementsInRange(array, highLimit, lowLimit);
-		double avg = arrayHandler.calculateAvgElementsInRange(array, highLimit, lowLimit);
+		int count = arrayHandler.getCountElements(array, highLimit, lowLimit);
+		double avg = arrayHandler.calculateAvgElements(array, highLimit, lowLimit);
 		int[] result = {};
 		if (count < avg) {
-			result = arrayHandler.replacePositiveElementsInRangeOnZero(array, highLimit, lowLimit);
+			result = arrayHandler.resetPositiveElements(array, highLimit, lowLimit);
 		}
 		return result;
 	}

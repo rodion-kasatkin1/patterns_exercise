@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * Generate formatted strings of init and result arrays
  */
-public class ArrayFormatStringGenerator {
+public class ConsoleView {
 
 	private static final String INIT = "Init array";
 	private static final String RESULT = "Result array";
@@ -28,8 +28,8 @@ public class ArrayFormatStringGenerator {
 	 * @param array
 	 * @return formatted String  array with comment.
 	 */
-	public String getFormattedInitArray(int[] array) {
-		return getFormattedCommentAndArray(INIT, Arrays.toString(array));
+	public void displayInitArray(int[] array) {
+		System.out.println(getFormattedCommentAndArray(INIT, Arrays.toString(array)));
 	}
 
 	/**
@@ -38,9 +38,12 @@ public class ArrayFormatStringGenerator {
 	 * @param array
 	 * @return formatted String  array with comment.
 	 */
-	public String getFormattedResultArray(int[] array) {
-		return getFormattedCommentAndArray(RESULT, Arrays.toString(array));
+	public void displayResultArray(int[] array) {
+		System.out.println(getFormattedCommentAndArray(RESULT, Arrays.toString(array)));
 	}
 
+	public void printMessage(String message) {
+		System.out.println(message);
+	}
 
 }

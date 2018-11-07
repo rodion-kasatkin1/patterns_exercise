@@ -14,7 +14,7 @@ public class ArrayHandler {
 	 * @param highLimit top border of range.
 	 * @return count of elements in a range.
 	 */
-	public int getCountElementsInRange(int[] array, int highLimit, int lowLimit) {
+	public int getCountElements(int[] array, int highLimit, int lowLimit) {
 		int count = 0;
 		for (int i = 0; i < array.length; i++) {
 			if (isInRange(array[i], highLimit, lowLimit)) {
@@ -32,7 +32,7 @@ public class ArrayHandler {
 	 * @param highLimit top border of range.
 	 * @return average value of elements in a range
 	 */
-	public double calculateAvgElementsInRange(int[] array, int highLimit, int lowLimit) throws ArithmeticException {
+	public double calculateAvgElements(int[] array, int highLimit, int lowLimit) throws ArithmeticException {
 		int sum = 0;
 		int count = 0;
 		for (int i = 0; i < array.length; i++) {
@@ -63,11 +63,12 @@ public class ArrayHandler {
 	 * @param array is array that we need to handle.
 	 * @return new array is result of handle.
 	 */
-	public int[] replacePositiveElementsInRangeOnZero(int[] array, int highLimit, int lowLimit) {
+	public int[] resetPositiveElements(int[] array, int highLimit, int lowLimit) {
 		int[] resultArray = new int[array.length];
 		for (int i = 0; i < array.length; i++) {
-			if (!(array[i] > 0 && isInRange(array[i], highLimit, lowLimit))) {
-				resultArray[i] = array[i];
+			int currentElement = array[i];
+			if (!(currentElement > 0 && isInRange(currentElement, highLimit, lowLimit))) {
+				resultArray[i] = currentElement;
 			}
 		}
 		return resultArray;
