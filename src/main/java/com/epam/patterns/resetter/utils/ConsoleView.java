@@ -42,8 +42,8 @@ public class ConsoleView {
 		System.out.println(getFormattedCommentAndArray(RESULT, Arrays.toString(array)));
 	}
 
-	public void printMessage(String message) {
-		System.out.println(message);
+	public void printError(Exception e) {
+		e.printStackTrace();
 	}
 
 }
